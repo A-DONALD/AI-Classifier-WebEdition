@@ -13,7 +13,7 @@
         <h1>AI - docs classifier</h1>
     </header>
     <div class="container">
-        <div class="column">
+        <div class="column" id="left">
             <!-- Left Column Content - Project and Author information -->
             <div class="block">
                 <textarea class="textInput" rows="9" cols="95"></textarea>
@@ -28,13 +28,22 @@
             <img src="https://img.shields.io/badge/scikit--learn-black?style=for-the-badge&logo=scikit-learn">
             <img src="https://img.shields.io/badge/flask-black?style=for-the-badge&logo=flask">
         </div>
-        <div class="column" id="dropZone">
-            <!-- Right Column Content - Drag and Drop Zone -->
-            <p>Drag and drop files here or click to browse</p>
-            <input type="file" id="fileInput" multiple style="display: none;">
-            <button id="upload-button">Upload</button>
-            <div class="file-list" id="fileList">
-                <ul></ul>
+        <div class="column" id="center">
+            <button id="text-classification">< Text-Classification</button>
+            <button id="docs-classification">Docs-Classification ></button>
+        </div>
+        <div class="column" id="right">
+            <div id="dropZone">
+                <!-- Right Column Content - Drag and Drop Zone -->
+                <p>Drag and drop files here or click to browse</p>
+                <input type="file" id="fileInput" multiple style="display: none;">
+                <button id="upload-button">Upload</button>
+                <div class="file-list" id="fileList">
+                    <ul></ul>
+                </div>
+            </div>
+            <div id="result">
+                <!-- Here we will print the solution of the classification -->
             </div>
         </div>
     </div>

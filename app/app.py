@@ -12,4 +12,4 @@ def hello():
 def main():
     url = f"http://localhost:5000"
     webbrowser.open(url)
-    app.run(debug=False, port='5000')
+    app.run(debug=True, port='5000')

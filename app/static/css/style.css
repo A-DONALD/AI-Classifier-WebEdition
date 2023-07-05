@@ -19,10 +19,6 @@ img{
     border-radius: 10px;
 }
 
-.block{
-
-}
-
 .container {
     display: flex;
     height: 80vh;
@@ -34,17 +30,74 @@ img{
     margin: 0 auto;
 }
 
+#center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #dropZone {
     color: white;
     border-radius: 10px;
     border: 5px dashed #666;
     padding: 20px;
     text-align: center;
-    height: 100px;
-    width: 150px;
+    height: 170px;
+    width: 38vw;
     margin: auto;
-    margin-top: 10px;
     backdrop-filter: blur(5px);
+}
+
+#text-classification, #docs-classification{
+    margin-top: 45px;
+    color: #2B87C8;
+    background-color: #1C2833;
+    width: 100%;
+    padding: 10px;
+    border: 3px solid #1C2833;
+    z-index: 0;
+}
+
+#text-classification {
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#docs-classification{
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+@keyframes slide {
+    to {
+        background-position:25vw;
+    }
+}
+
+#text-classification:hover, #docs-classification:hover{
+    transition: 0.5s;
+    color: white;
+    background-image: linear-gradient(90deg, #17202A 0%, #003153 40%, #1C2833 80%, #17202A 100%);
+    animation:slide 5s linear infinite;
+}
+
+#text-classification:active, #docs-classification:active{
+    border: solid;
+    border-color: grey;
+}
+
+#text-classification:hover{
+    transition: 0.25s;
+    transform: translateX(-5px);
+}
+
+#docs-classification:hover{
+    transition: 0.25s;
+    transform: translateX(5px);
 }
 
 #dropZone.drag-over{
@@ -60,5 +113,9 @@ img{
     background-color: #1C2833;
     color: #2B87C8;
     border-radius: 10px;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    height: 200px;
+    width: 38vw;
+    resize: none;
+    padding: 10px;
 }
