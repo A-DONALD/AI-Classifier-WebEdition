@@ -6,6 +6,8 @@
     <title>docs classifier</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/style.css') }}">
     <link rel="Website Icon" type="png" href="{{ url_for('static', filename= 'img/icone.png') }}">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
 <body>
@@ -16,7 +18,7 @@
         <div class="column" id="left">
             <!-- Left Column Content - Project and Author information -->
             <div class="block">
-                <textarea class="textInput" rows="9" cols="95"></textarea>
+                <textarea id="textInput" rows="9" cols="95"></textarea>
             </div>
             <div class="block">
                 <a href="https://github.com/a-donald">
@@ -29,8 +31,17 @@
             <img src="https://img.shields.io/badge/flask-black?style=for-the-badge&logo=flask">
         </div>
         <div class="column" id="center">
+            <div class="theme">
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <span class="ball"></span>
+                </label>
+            </div>
             <button id="text-classification">< Text-Classification</button>
             <button id="docs-classification">Docs-Classification ></button>
+            <div id="result-div"></div>
         </div>
         <div class="column" id="right">
             <div id="dropZone">
@@ -42,9 +53,7 @@
                     <ul></ul>
                 </div>
             </div>
-            <div id="result">
-                <!-- Here we will print the solution of the classification -->
-            </div>
+            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
         </div>
     </div>
     <footer>

@@ -1,8 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {box-sizing: border-box;}
+
 body {
     background: linear-gradient(to left, #0D0D0E, #17202A, #0D0D0E);
+    background-color: #17202A;
     color: #2B87C8;
     margin: 0px;
     padding: 0px;
+    transition: background 1s linear;
+}
+
+body.light {
+    background: linear-gradient(to left, #9bddff, #afeeee, #b9f2ff);
+    transition: background 1s linear;
+    color: #b9f2ff;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #111;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+    transform: translateX(24px);
 }
 
 header, footer {
@@ -109,7 +158,7 @@ img{
     margin-top: 10px;
 }
 
-.textInput{
+#textInput{
     background-color: #1C2833;
     color: #2B87C8;
     border-radius: 10px;
