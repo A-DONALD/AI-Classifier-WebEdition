@@ -14,8 +14,8 @@ This is an Update of AI-Classifier which uses Flask to link a web interface. we 
 
 Before you begin, make sure you have the following installed on your local machine:
 
-1. Git
-2. Python
+1. [Git](https://git-scm.com/downloads)
+2. [Python](https://www.python.org/downloads/)
 
 ## Cloning the Project
 
@@ -30,3 +30,25 @@ Before you begin, make sure you have the following installed on your local machi
    ```
    git clone https://github.com/A-DONALD/AI-Classifier-WebEdition.git
    ```
+
+## Launch the project
+
+1. After the repository has been cloned, navigate to the project folder:
+
+   ```
+   cd ibackup-extractor
+   ```
+
+2. Install the required Python packages using pip:
+
+   ```
+   pip install -r requirements.txt
+   ```
+
+3. Execute the `run.py` script with the commands:
+
+   ```
+   python run.py
+   ```
+
+_For more instruction, refer to [How to use it](https://github.com/A-DONALD/AI-Classifier-WebEdition/wiki)_
