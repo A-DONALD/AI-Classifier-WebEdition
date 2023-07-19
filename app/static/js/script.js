@@ -9,7 +9,6 @@ checkbox.addEventListener("change", () => {
 })
 
 // This function is responsible to print out the label of the document as a diagram with chart.js
-
 function printResultDiagram(){
     let randomForestAccuracy = 85.5;
     let kNeighborsAccuracy = 83.3;
@@ -70,6 +69,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultDiv = document.getElementById('result-div');
     const dropZone = document.getElementById('dropZone');
 
+    // Add event listeners for the drop zone
+    dropZone.addEventListener('dragover', handleDragOver);
+
+    // Add event listener for "docs-classification" button
+    docsClassificationBtn.addEventListener('click', handleDocsClassification);
+
+    // Function to manage the drag-and-drop hover event
+    function handleDragOver(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        dropZone.classList.add('drag-over');
+    }
+
+    // Function to manage the drag-and-drop hover exit event
+    function handleDragLeave(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        dropZone.classList.remove('drag-over');
+    }
+
+    // This function is responsible to classify the text in the textarea bag
     textClassificationBtn.addEventListener('click', function() {
         const text = textInput.value;
         const xhr = new XMLHttpRequest();
@@ -84,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 randomForestLabel = words[0];
                 kNeighborsLabel = words[1];
                 multinomialLabel = words[2];
+                //print the result of each classifier in the "result-div"
                 resultDiv.innerHTML = `
                     <p>${words[0]}</p>
                     <p>${words[1]}</p>
