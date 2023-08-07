@@ -25,7 +25,7 @@ Before you begin, make sure you have the following installed on your local machi
    cd /path/to/your/directory
    ```
 
-2. Clone the AI project from GitLab, follow these steps:
+2. Clone the AI project from Github, follow these steps:
 
    ```
    git clone https://github.com/A-DONALD/AI-Classifier-WebEdition.git
