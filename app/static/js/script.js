@@ -1,6 +1,9 @@
 let randomForestLabel = "earn";
 let kNeighborsLabel = "earn";
 let multinomialLabel = "earn";
+let randomForestAccuracy = 85.5;
+let kNeighborsAccuracy = 83.3;
+let multinomialAccuracy = 79.8;
 
 // button to change the color of the background - switch theme
 const checkbox = document.getElementById("checkbox")
@@ -10,9 +13,9 @@ checkbox.addEventListener("change", () => {
 
 // This function is responsible to print out the label of the document as a diagram with chart.js
 function printResultDiagram(){
-    let randomForestAccuracy = 85.5;
-    let kNeighborsAccuracy = 83.3;
-    let multinomialAccuracy = 79.8;
+    const randomPercentage = 34.4;
+    const kNeighborsPercentage= 33.6;
+    const multinomialPercentage = 32;
 
     let xValues, yValues;
 
@@ -23,16 +26,16 @@ function printResultDiagram(){
         yValues = [100];
     } else if (randomForestLabel === kNeighborsLabel) {
         xValues = [randomForestLabel, multinomialLabel];
-        yValues = [randomForestAccuracy+kNeighborsAccuracy, multinomialAccuracy];
+        yValues = [randomPercentage+kNeighborsPercentage, multinomialPercentage];
     } else if (kNeighborsLabel === multinomialLabel) {
         xValues = [kNeighborsLabel, randomForestLabel];
-        yValues = [kNeighborsAccuracy+multinomialAccuracy, randomForestAccuracy];
+        yValues = [kNeighborsPercentage+multinomialPercentage, randomPercentage];
     } else if (randomForestLabel === multinomialLabel) {
         xValues = [randomForestLabel, kNeighborsLabel];
-        yValues = [randomForestAccuracy+multinomialAccuracy, kNeighborsAccuracy];
+        yValues = [multinomialPercentage+randomPercentage, kNeighborsPercentage];
     } else {
         xValues = [randomForestLabel, kNeighborsLabel, multinomialLabel];
-        yValues = [randomForestAccuracy, kNeighborsAccuracy, multinomialAccuracy];
+        yValues = [randomPercentage, kNeighborsPercentage, multinomialPercentage];
     }
 
     // choose the color of the different element of the diagram
@@ -63,31 +66,10 @@ function printResultDiagram(){
 
 document.addEventListener('DOMContentLoaded', function() {
     const textClassificationBtn = document.getElementById('text-classification');
-    const docsClassificationBtn = document.getElementById('docs-classification');
 
     const textInput = document.getElementById('textInput');
     const resultDiv = document.getElementById('result-div');
     const dropZone = document.getElementById('dropZone');
-
-    // Add event listeners for the drop zone
-    dropZone.addEventListener('dragover', handleDragOver);
-
-    // Add event listener for "docs-classification" button
-    docsClassificationBtn.addEventListener('click', handleDocsClassification);
-
-    // Function to manage the drag-and-drop hover event
-    function handleDragOver(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        dropZone.classList.add('drag-over');
-    }
-
-    // Function to manage the drag-and-drop hover exit event
-    function handleDragLeave(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        dropZone.classList.remove('drag-over');
-    }
 
     // This function is responsible to classify the text in the textarea bag
     textClassificationBtn.addEventListener('click', function() {
@@ -106,9 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 multinomialLabel = words[2];
                 //print the result of each classifier in the "result-div"
                 resultDiv.innerHTML = `
-                    <p>${words[0]}</p>
-                    <p>${words[1]}</p>
-                    <p>${words[2]}</p>
+                    <p>${words[0] + " : " + randomForestAccuracy}</p>
+                    <p>${words[1] + " : " + kNeighborsAccuracy}</p>
+                    <p>${words[2] + " : " + multinomialAccuracy}</p>
                 `;
                 printResultDiagram();
             }
